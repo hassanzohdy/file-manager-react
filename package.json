@@ -1,0 +1,89 @@
+{
+    "name": "file-manager",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@mongez/cache": "^1.0.13",
+        "@mongez/config": "^1.0.20",
+        "@mongez/dom": "^1.1.0",
+        "@mongez/events": "^1.0.9",
+        "@mongez/http": "^1.0.24",
+        "@mongez/localization": "^1.0.20",
+        "@mongez/react": "^1.0.25",
+        "@mongez/react-atom": "^1.4.5",
+        "@mongez/react-form": "^1.5.17",
+        "@mongez/react-helmet": "^1.0.9",
+        "@mongez/react-router": "^1.0.59",
+        "@mongez/react-wizard": "^1.1.17",
+        "@mongez/reinforcements": "^1.0.28",
+        "@mongez/supportive-is": "^1.0.6",
+        "@mongez/user": "^1.0.9",
+        "@mongez/validator": "^1.0.13",
+        "crypto-js": "^4.1.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-scripts": "5.0.1",
+        "web-vitals": "^3.0.1",
+        "@emotion/react": "11.10.0",
+        "@emotion/styled": "11.10.0"
+    },
+    "scripts": {
+        "postinstall": "npx link-module-alias",
+        "start": "npx react-scripts start",
+        "build": "npx react-scripts build",
+        "build:prod": "npx env-cmd -f ./.env.production react-scripts build",
+        "test": "npx react-scripts test",
+        "dev": "unlink yarn.lock && yarn update && yarn install && yarn start",
+        "update": "npx ncu -u",
+        "lint": "npx eslint -c ./.eslintrc.json ./src",
+        "fix": "npx eslint --fix -c ./.eslintrc.json ./src",
+        "format": "npx prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc.json",
+        "eject": "npx react-scripts eject"
+    },
+    "_moduleAliases": {
+        "apps": "./src/apps",
+        "shared": "./src/shared",
+        "design-system": "./src/apps/front-office/design-system",
+        "assets": "./src/shared/assets",
+        "user": "./src/apps/front-office/account/user",
+        "app": "./src/apps/front-office"
+    },
+    "devDependencies": {
+        "typescript": "^4.8.3",
+        "@mongez/react-wizard": "^1.1.17",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^14.4.3",
+        "@types/crypto-js": "^4.1.1",
+        "@types/jest": "^29.0.0",
+        "@types/node": "^18.7.16",
+        "@types/react": "^18.0.18",
+        "@types/react-dom": "^18.0.6",
+        "@typescript-eslint/eslint-plugin": "^5.36.2",
+        "env-cmd": "^10.1.0",
+        "eslint": "^8.23.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.31.8",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "link-module-alias": "^1.2.0",
+        "npm-check-updates": "^16.1.0",
+        "prettier": "^2.7.1",
+        "@typescript-eslint/parser": "^5.36.2",
+        "babel-plugin-prismjs": "^2.1.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-config-react-app": "^7.0.1",
+        "prettier-plugin-organize-imports": "^3.1.1"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
