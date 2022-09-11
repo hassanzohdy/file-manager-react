@@ -20,22 +20,9 @@ export type Node = {
    * Is node directory
    */
   isDirectory: boolean;
-};
-
-/**
- * FileNode is a node that represents a file.
- * It extends the `Node` type.
- */
-export type FileNode = Node;
-
-/**
- * DirectoryNode is a node that represents a directory.
- * It extends the `Node` type.
- */
-export type DirectoryNode = Node & {
   /**
-   * Directory children
-   * It can be a list of `FileNode` and/or a `DirectoryNode`
+   * Node children
+   * This should be present (event with empty array) if the node is directory
    */
-  children: Node[];
+  children?: Node[];
 };

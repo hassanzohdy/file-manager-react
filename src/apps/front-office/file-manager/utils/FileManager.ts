@@ -1,4 +1,4 @@
-import { DirectoryNode } from "../types/FileManager.types";
+import { Node } from "../types/FileManager.types";
 
 export default class FileManager {
   /**
@@ -14,5 +14,5 @@ export default class FileManager {
   /**
    * Current directory node
    */
-  protected currentDirectoryNode?: DirectoryNode;
+  protected currentDirectoryNode?: Node;
 }

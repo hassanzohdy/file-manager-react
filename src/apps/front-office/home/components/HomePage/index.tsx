@@ -1,15 +1,12 @@
-import { useRequest } from "@mongez/react";
 import Helmet from "@mongez/react-helmet";
-import LoadingErrorHandler from "app/design-system/components/Indicators/LoadingErrorHandler";
-import { getHome } from "../../services/home-service";
+import { FileManagerService } from "app/file-manager/services/file-manager-service";
+
+const fileManager = new FileManagerService();
 
 export default function HomePage() {
-  const { error, isLoading } = useRequest(() => getHome());
-
-  if (error || isLoading) {
-    return <LoadingErrorHandler isLoading={isLoading} error={error} />;
-  }
-
+  fileManager.list("/").then(response => {
+    console.log(response.data);
+  });
   return (
     <>
       <Helmet title="home" appendAppName={false} />
