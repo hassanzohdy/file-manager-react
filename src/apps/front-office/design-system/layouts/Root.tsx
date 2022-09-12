@@ -1,3 +1,4 @@
+import { AppShell, MantineProvider } from "@mantine/core";
 import { BasicComponentProps } from "../../utils/types";
 
 /**
@@ -7,5 +8,11 @@ import { BasicComponentProps } from "../../utils/types";
  * You may for instance fetch settings from the server before loading the app or a Bearer token to work with the API.
  */
 export default function Root({ children }: BasicComponentProps) {
-  return <>{children}</>;
+  return (
+    <>
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        <AppShell>{children}</AppShell>
+      </MantineProvider>
+    </>
+  );
 }
