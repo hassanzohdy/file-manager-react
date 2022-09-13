@@ -1,9 +1,9 @@
 import { Progress } from "@mantine/core";
+import { useKernel } from "app/file-manager/hooks";
 import { useEffect, useState } from "react";
-import useFileManager from "../../hooks/useFileManager";
 
 export default function LoadingProgressBar() {
-  const fileManager = useFileManager();
+  const kernel = useKernel();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function LoadingProgressBar() {
     let interval: ReturnType<typeof setInterval>;
 
     // we'll listen for loading state
-    const loadingEvent = fileManager.on("loading", () => {
+    const loadingEvent = kernel.on("loading", () => {
       setProgress(5);
 
       interval = setInterval(() => {
@@ -29,7 +29,7 @@ export default function LoadingProgressBar() {
     });
 
     // now let's listen when the loading is finished
-    const loadEvent = fileManager.on("load", () => {
+    const loadEvent = kernel.on("load", () => {
       // clear the interval
       setProgress(100);
 
@@ -46,9 +46,32 @@ export default function LoadingProgressBar() {
       loadingEvent.unsubscribe();
       loadEvent.unsubscribe();
     };
-  }, [fileManager]);
+  }, [kernel]);
 
-  if (progress === 0) return null;
+  const mapProgressColor = () => {
+    if (progress < 25) {
+      return "blue";
+    }
 
-  return <Progress size="lg" value={progress} striped animate />;
+    if (progress < 50) {
+      return "indigo";
+    }
+
+    if (progress < 75) {
+      return "lime";
+    }
+
+    return "green";
+  };
+
+  return (
+    <Progress
+      size="lg"
+      value={progress}
+      striped
+      label={progress > 0 ? `${progress}%` : undefined}
+      color={mapProgressColor()}
+      animate
+    />
+  );
 }

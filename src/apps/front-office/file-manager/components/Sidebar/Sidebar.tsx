@@ -1,14 +1,10 @@
 import { Card, Skeleton } from "@mantine/core";
 import { IconFolder, IconHome2 } from "@tabler/icons";
+import { useLoading } from "app/file-manager/hooks";
 import { useMemo } from "react";
-import useLoading from "../../../hooks/useLoading";
-import { Node } from "../../../types/FileManager.types";
 import { SidebarWrapper } from "./Sidebar.styles";
+import { SidebarProps } from "./Sidebar.types";
 import SidebarNode from "./SidebarNode";
-
-export type SidebarProps = {
-  rootDirectory?: Node;
-};
 
 export default function Sidebar({ rootDirectory }: SidebarProps) {
   const rootChildren = useMemo(() => {

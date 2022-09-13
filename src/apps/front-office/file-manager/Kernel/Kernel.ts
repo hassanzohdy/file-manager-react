@@ -1,8 +1,8 @@
 import events, { EventSubscription } from "@mongez/events";
 import fileManagerService from "../services/file-manager-service";
-import { FileManagerEvents, Node } from "../types/FileManager.types";
+import { KernelEvents, Node } from "./Kernel.types";
 
-export default class FileManager {
+export default class Kernel {
   /**
    * Root path
    */
@@ -21,7 +21,7 @@ export default class FileManager {
   /**
    * Set root path
    */
-  public setRootPath(rootPath: string): FileManager {
+  public setRootPath(rootPath: string): Kernel {
     this.rootPath = rootPath;
     return this;
   }
@@ -58,14 +58,14 @@ export default class FileManager {
   /**
    * Add event listener to the given event
    */
-  public on(event: FileManagerEvents, callback: any): EventSubscription {
+  public on(event: KernelEvents, callback: any): EventSubscription {
     return events.subscribe(`file-manger.${event}`, callback);
   }
 
   /**
    * Trigger the given event
    */
-  public trigger(event: FileManagerEvents, ...args: any[]): void {
+  public trigger(event: KernelEvents, ...args: any[]): void {
     events.trigger(`file-manger.${event}`, ...args);
   }
 }

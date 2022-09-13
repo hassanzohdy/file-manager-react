@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { Node } from "../types/FileManager.types";
+import { Node } from "app/file-manager/Kernel";
 
 export function newNode(
   isDirectory = faker.datatype.boolean(),

@@ -1,2 +1,3 @@
-export { default } from "./FileManager";
-export * from "./FileManager.types";
+import FileManager from "./FileManager";
+
+export default FileManager;

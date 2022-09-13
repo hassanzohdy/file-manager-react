@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import useFileManager from "./useFileManager";
+import useKernel from "./useKernel";
 
 export default function useLoading(): boolean {
-  const fileManager = useFileManager();
+  const kernel = useKernel();
 
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const loadingEvent = fileManager.on("loading", () => setIsLoading(true));
+    const loadingEvent = kernel.on("loading", () => setIsLoading(true));
 
-    const loadEvent = fileManager.on("load", () => setIsLoading(false));
+    const loadEvent = kernel.on("load", () => setIsLoading(false));
 
     return () => {
       loadingEvent.unsubscribe();
       loadEvent.unsubscribe();
     };
-  }, [fileManager]);
+  }, [kernel]);
 
   return isLoading;
 }

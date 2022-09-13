@@ -1,21 +1,20 @@
 import { Grid } from "@mantine/core";
-import BaseFileManager from "app/file-manager/utils/FileManager";
+import Content from "app/file-manager/components/Content";
+import LoadingProgressBar from "app/file-manager/components/LoadingProgressBar";
+import Sidebar from "app/file-manager/components/Sidebar";
+import Toolbar from "app/file-manager/components/Toolbar";
+import { KernelContext } from "app/file-manager/contexts";
+import Kernel, { Node } from "app/file-manager/Kernel";
 import { useCallback, useEffect, useRef, useState } from "react";
-import Content from "../../Content";
-import FileManagerContext from "../../contexts/FileManagerContext";
-import { Node } from "../../types/FileManager.types";
 import { BodyWrapper } from "./FileManager.styles";
 import { FileManagerProps } from "./FileManager.types";
-import LoadingProgressBar from "./LoadingProgressBar";
-import Sidebar from "./Sidebar";
-import Toolbar from "./Toolbar";
 
 export default function FileManager({ rootPath }: FileManagerProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [currentDirectoryNode, setCurrentDirectoryNode] = useState<Node>();
   const [rootDirectoryNode, setRootDirectoryNode] = useState<Node>();
 
-  const { current: fileManager } = useRef(new BaseFileManager());
+  const { current: kernel } = useRef(new Kernel());
 
   // load the given directory path
   const load = useCallback(
@@ -23,10 +22,10 @@ export default function FileManager({ rootPath }: FileManagerProps) {
       setIsLoading(true);
 
       if (isRoot) {
-        fileManager.setRootPath(path);
+        kernel.setRootPath(path);
       }
 
-      fileManager.load(path).then(node => {
+      kernel.load(path).then(node => {
         setCurrentDirectoryNode(node);
 
         setIsLoading(false);
@@ -35,7 +34,7 @@ export default function FileManager({ rootPath }: FileManagerProps) {
         }
       });
     },
-    [fileManager],
+    [kernel],
   );
 
   // load root directory
@@ -43,10 +42,10 @@ export default function FileManager({ rootPath }: FileManagerProps) {
     if (!rootPath) return;
 
     load(rootPath, true);
-  }, [rootPath, fileManager, load]);
+  }, [rootPath, kernel, load]);
 
   return (
-    <FileManagerContext.Provider value={fileManager}>
+    <KernelContext.Provider value={kernel}>
       <LoadingProgressBar />
       <Toolbar />
       <BodyWrapper>
@@ -59,7 +58,7 @@ export default function FileManager({ rootPath }: FileManagerProps) {
           </Grid.Col>
         </Grid>
       </BodyWrapper>
-    </FileManagerContext.Provider>
+    </KernelContext.Provider>
   );
 }
 

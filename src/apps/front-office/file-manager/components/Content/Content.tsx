@@ -1,5 +1,5 @@
 import { Card, LoadingOverlay } from "@mantine/core";
-import useLoading from "../hooks/useLoading";
+import { useLoading } from "app/file-manager/hooks";
 import { ContentWrapper } from "./Content.styles";
 
 export default function Content() {

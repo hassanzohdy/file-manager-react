@@ -1,4 +1,4 @@
-import { Node } from "../types/FileManager.types";
+import { Node } from "app/file-manager/Kernel";
 import rootNode from "./data.json";
 
 export default function fetchNode(

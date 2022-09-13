@@ -28,6 +28,6 @@ export type Node = {
 };
 
 /**
- * File manager events
+ * Kernel events
  */
-export type FileManagerEvents = "loading" | "load" | "directoryChange";
+export type KernelEvents = "loading" | "load" | "directoryChange";
