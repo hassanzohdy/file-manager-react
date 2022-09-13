@@ -1,4 +1,4 @@
-import { Card, NavLink } from "@mantine/core";
+import { Card } from "@mantine/core";
 import { IconFolder, IconHome2 } from "@tabler/icons";
 import { useMemo } from "react";
 import { Node } from "../../../types/FileManager.types";
@@ -18,26 +18,22 @@ export default function Sidebar({ rootDirectory }: SidebarProps) {
   return (
     <>
       <Card shadow="sm">
-        <NavLink
-          p={0}
-          label={
-            <SidebarNode
-              node={rootDirectory}
-              icon={<IconHome2 size={16} color="#78a136" />}
-            />
-          }
+        <SidebarNode
+          node={rootDirectory}
+          navProps={{
+            p: 0,
+          }}
+          icon={<IconHome2 size={16} color="#78a136" />}
         />
         {rootChildren?.map(child => (
-          <NavLink
-            p={0}
-            pl={10}
+          <SidebarNode
+            navProps={{
+              p: 0,
+              pl: 10,
+            }}
             key={child.path}
-            label={
-              <SidebarNode
-                icon={<IconFolder size={16} fill="#31caf9" />}
-                node={child}
-              />
-            }
+            icon={<IconFolder size={16} fill="#31caf9" />}
+            node={child}
           />
         ))}
       </Card>

@@ -5,17 +5,17 @@ export default class FileManager {
   /**
    * Root path
    */
-  protected rootPath = "/";
+  public rootPath = "/";
 
   /**
    * Current directory path
    */
-  protected currentDirectoryPath = "/";
+  public currentDirectoryPath = "/";
 
   /**
    * Current directory node
    */
-  protected currentDirectoryNode?: Node;
+  public currentDirectoryNode?: Node;
 
   /**
    * Set root path
