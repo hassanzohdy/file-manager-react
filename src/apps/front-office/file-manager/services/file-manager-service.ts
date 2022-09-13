@@ -1,5 +1,5 @@
 import FileManagerServiceInterface from "../types/FileManagerServiceInterface";
-import { newDirectoryNode } from "../utils/data";
+import fetchNode from "../utils/helpers";
 
 export class FileManagerService implements FileManagerServiceInterface {
   /**
@@ -9,7 +9,7 @@ export class FileManagerService implements FileManagerServiceInterface {
     return new Promise(resolve => {
       resolve({
         data: {
-          node: newDirectoryNode(),
+          node: fetchNode(directoryPath),
         },
       });
     });

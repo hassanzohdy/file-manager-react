@@ -23,14 +23,26 @@ export default function SidebarNode({
   );
 
   useEffect(() => {
-    setIsActiveNode(node === fileManager.currentDirectoryNode);
-  }, [fileManager.currentDirectoryNode, node]);
+    const event = fileManager.on(
+      "directoryChange",
+      (newCurrentDirectory: Node) => {
+        if (newCurrentDirectory.path !== node.path && isActiveNode) {
+          setIsActiveNode(false);
+        } else if (newCurrentDirectory.path === node.path && !isActiveNode) {
+          setIsActiveNode(true);
+        }
+      },
+    );
+
+    return () => event.unsubscribe();
+  }, [fileManager, isActiveNode, node]);
 
   return (
     <>
       <NavLink
         {...navProps}
         active={isActiveNode}
+        onClick={() => fileManager.load(node.path)}
         label={
           <>
             <IconWrapper>{icon}</IconWrapper>

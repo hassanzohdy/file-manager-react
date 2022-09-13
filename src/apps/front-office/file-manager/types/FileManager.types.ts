@@ -26,3 +26,8 @@ export type Node = {
    */
   children?: Node[];
 };
+
+/**
+ * File manager events
+ */
+export type FileManagerEvents = "loading" | "load" | "directoryChange";

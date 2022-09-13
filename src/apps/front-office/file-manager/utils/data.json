@@ -1,0 +1,420 @@
+{
+  "path": "/",
+  "name": "/",
+  "size": 70533,
+  "isDirectory": true,
+  "children": [
+    {
+      "path": "/Library",
+      "name": "Library",
+      "size": 68201,
+      "isDirectory": true,
+      "children": [
+        {
+          "path": "/var/log/rhodium_lodge.lwp",
+          "name": "var",
+          "size": 87444,
+          "isDirectory": false
+        }
+      ]
+    },
+    {
+      "path": "/media/intelligent.jnlp",
+      "name": "media",
+      "size": 1236,
+      "isDirectory": false
+    },
+    {
+      "path": "/var/log/fire_furthermore_purity.mp4v",
+      "name": "var",
+      "size": 95179,
+      "isDirectory": false
+    },
+    {
+      "path": "/local/log",
+      "name": "local",
+      "size": 9739,
+      "isDirectory": true,
+      "children": [
+        {
+          "path": "/opt",
+          "name": "opt",
+          "size": 68469,
+          "isDirectory": true,
+          "children": [
+            {
+              "path": "/usr/libdata/southwest.vtf",
+              "name": "usr",
+              "size": 75879,
+              "isDirectory": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/etc/mail/bossy_fess_compress.mvb",
+      "name": "etc",
+      "size": 47549,
+      "isDirectory": false
+    },
+    {
+      "path": "/usr/bin/arkansas_suv.mus",
+      "name": "usr",
+      "size": 98329,
+      "isDirectory": false
+    },
+    {
+      "path": "/home/concept_alliance_account.avi",
+      "name": "home",
+      "size": 37505,
+      "isDirectory": false
+    },
+    {
+      "path": "/private/tmp",
+      "name": "private",
+      "size": 96386,
+      "isDirectory": true,
+      "children": [
+        {
+          "path": "/opt/bin/program_rupee_views.ifb",
+          "name": "opt",
+          "size": 36417,
+          "isDirectory": false
+        }
+      ]
+    },
+    {
+      "path": "/home/qui_account_joule.srt",
+      "name": "home",
+      "size": 59250,
+      "isDirectory": false
+    },
+    {
+      "path": "/tmp",
+      "name": "tmp",
+      "size": 79276,
+      "isDirectory": true,
+      "children": [
+        {
+          "path": "/opt/share/east_beauty.sgl",
+          "name": "opt",
+          "size": 70401,
+          "isDirectory": false
+        }
+      ]
+    },
+    {
+      "path": "/home",
+      "name": "home",
+      "size": 77920,
+      "isDirectory": true,
+      "children": [
+        {
+          "path": "/private/var",
+          "name": "private",
+          "size": 50803,
+          "isDirectory": true,
+          "children": [
+            {
+              "path": "/var/mail",
+              "name": "var",
+              "size": 51658,
+              "isDirectory": true,
+              "children": [
+                {
+                  "path": "/Users",
+                  "name": "Users",
+                  "size": 66068,
+                  "isDirectory": true,
+                  "children": [
+                    {
+                      "path": "/media/bespoke_connecticut.wmd",
+                      "name": "media",
+                      "size": 92243,
+                      "isDirectory": false
+                    },
+                    {
+                      "path": "/usr/include",
+                      "name": "usr",
+                      "size": 59751,
+                      "isDirectory": true,
+                      "children": [
+                        {
+                          "path": "/usr/local/bin",
+                          "name": "usr",
+                          "size": 86273,
+                          "isDirectory": true,
+                          "children": [
+                            {
+                              "path": "/home/account.sc",
+                              "name": "home",
+                              "size": 28456,
+                              "isDirectory": false
+                            }
+                          ]
+                        },
+                        {
+                          "path": "/lost+found",
+                          "name": "lost+found",
+                          "size": 95753,
+                          "isDirectory": true,
+                          "children": [
+                            {
+                              "path": "/net/invoice_connecting_kuwait.ssf",
+                              "name": "net",
+                              "size": 48547,
+                              "isDirectory": false
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "path": "/usr/bin/sdd_shoes_lead.ddf",
+              "name": "usr",
+              "size": 86112,
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "path": "/net/steel_paradigms_generate.geo",
+          "name": "net",
+          "size": 5962,
+          "isDirectory": false
+        }
+      ]
+    },
+    {
+      "path": "/src",
+      "name": "src",
+      "size": 41634,
+      "isDirectory": true,
+      "children": [
+        {
+          "path": "/usr/libdata",
+          "name": "usr",
+          "size": 39378,
+          "isDirectory": true,
+          "children": [
+            {
+              "path": "/usr/lib",
+              "name": "usr",
+              "size": 20505,
+              "isDirectory": true,
+              "children": [
+                {
+                  "path": "/root/aggregate.igm",
+                  "name": "root",
+                  "size": 65337,
+                  "isDirectory": false
+                },
+                {
+                  "path": "/home/user/fussy_integrate.m21",
+                  "name": "home",
+                  "size": 69135,
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "/var/mail",
+              "name": "var",
+              "size": 15543,
+              "isDirectory": true,
+              "children": [
+                {
+                  "path": "/etc/ppp/response_savings_southeast.xaml",
+                  "name": "etc",
+                  "size": 267,
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/sbin",
+          "name": "sbin",
+          "size": 88790,
+          "isDirectory": true,
+          "children": [
+            {
+              "path": "/etc/periodic",
+              "name": "etc",
+              "size": 23663,
+              "isDirectory": true,
+              "children": [
+                {
+                  "path": "/media",
+                  "name": "media",
+                  "size": 81614,
+                  "isDirectory": true,
+                  "children": [
+                    {
+                      "path": "/Network/field.xer",
+                      "name": "Network",
+                      "size": 44406,
+                      "isDirectory": false
+                    },
+                    {
+                      "path": "/home/user/dir",
+                      "name": "home",
+                      "size": 89296,
+                      "isDirectory": true,
+                      "children": [
+                        {
+                          "path": "/selinux/orchestrator.xsm",
+                          "name": "selinux",
+                          "size": 84414,
+                          "isDirectory": false
+                        },
+                        {
+                          "path": "/media",
+                          "name": "media",
+                          "size": 68960,
+                          "isDirectory": true,
+                          "children": [
+                            {
+                              "path": "/usr/monstrous_moratorium_response.ttl",
+                              "name": "usr",
+                              "size": 57457,
+                              "isDirectory": false
+                            },
+                            {
+                              "path": "/usr/obj/movies.exr",
+                              "name": "usr",
+                              "size": 52956,
+                              "isDirectory": false
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "path": "/opt/include",
+                  "name": "opt",
+                  "size": 24011,
+                  "isDirectory": true,
+                  "children": [
+                    {
+                      "path": "/usr/libdata",
+                      "name": "usr",
+                      "size": 57283,
+                      "isDirectory": true,
+                      "children": [
+                        {
+                          "path": "/var/log/sievert_west_guilder.cdkey",
+                          "name": "var",
+                          "size": 36818,
+                          "isDirectory": false
+                        },
+                        {
+                          "path": "/usr/ports",
+                          "name": "usr",
+                          "size": 62616,
+                          "isDirectory": true,
+                          "children": [
+                            {
+                              "path": "/Applications/kyat_saturate_home.grv",
+                              "name": "Applications",
+                              "size": 21664,
+                              "isDirectory": false
+                            },
+                            {
+                              "path": "/root",
+                              "name": "root",
+                              "size": 10739,
+                              "isDirectory": true,
+                              "children": [
+                                {
+                                  "path": "/private/var",
+                                  "name": "private",
+                                  "size": 90775,
+                                  "isDirectory": true,
+                                  "children": [
+                                    {
+                                      "path": "/Library",
+                                      "name": "Library",
+                                      "size": 85881,
+                                      "isDirectory": true,
+                                      "children": [
+                                        {
+                                          "path": "/mnt/cobalt_bicycle_earum.wsdl",
+                                          "name": "mnt",
+                                          "size": 55769,
+                                          "isDirectory": false
+                                        },
+                                        {
+                                          "path": "/etc",
+                                          "name": "etc",
+                                          "size": 8215,
+                                          "isDirectory": true,
+                                          "children": [
+                                            {
+                                              "path": "/usr/obj/virginia_manager.ait",
+                                              "name": "usr",
+                                              "size": 3988,
+                                              "isDirectory": false
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "path": "/lost+found/deposit_auxiliary.evy",
+                                  "name": "lost+found",
+                                  "size": 14874,
+                                  "isDirectory": false
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "path": "/net/exploit_wooden_lead.rif",
+                      "name": "net",
+                      "size": 64496,
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/usr/libdata",
+      "name": "usr",
+      "size": 76429,
+      "isDirectory": true,
+      "children": [
+        {
+          "path": "/etc/mail/riverside_associate.vst",
+          "name": "etc",
+          "size": 74947,
+          "isDirectory": false
+        }
+      ]
+    },
+    {
+      "path": "/tmp/uphold_input.ma",
+      "name": "tmp",
+      "size": 5102,
+      "isDirectory": false
+    }
+  ]
+}
