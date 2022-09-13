@@ -1,8 +1,9 @@
 import { Grid, Modal } from "@mantine/core";
 import BaseFileManager from "app/file-manager/utils/FileManager";
 import { useCallback, useEffect, useRef, useState } from "react";
+import Content from "../../Content";
+import FileManagerContext from "../../contexts/FileManagerContext";
 import { Node } from "../../types/FileManager.types";
-import Content from "./Content";
 import { BodyWrapper } from "./FileManager.styles";
 import { FileManagerProps } from "./FileManager.types";
 import Sidebar from "./Sidebar";
@@ -44,7 +45,7 @@ export default function FileManager({
   }, [rootPath, fileManager, open, load]);
 
   return (
-    <>
+    <FileManagerContext.Provider value={fileManager}>
       <Modal size="xl" opened={open} onClose={onClose}>
         <Toolbar />
         <BodyWrapper>
@@ -58,7 +59,7 @@ export default function FileManager({
           </Grid>
         </BodyWrapper>
       </Modal>
-    </>
+    </FileManagerContext.Provider>
   );
 }
 
