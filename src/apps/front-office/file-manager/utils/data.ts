@@ -1,32 +1,34 @@
 import { faker } from "@faker-js/faker";
 import { Node } from "../types/FileManager.types";
 
-export function newNode(): Node {
-  const isDirectory = faker.datatype.boolean();
+export function newNode(
+  isDirectory = faker.datatype.boolean(),
+  minChildrenNodes = 1,
+  maxChildrenNodes = 2,
+): Node {
+  const path = isDirectory
+    ? faker.system.directoryPath()
+    : faker.system.directoryPath() + "/" + faker.system.fileName();
   const node: Node = {
-    name: isDirectory ? faker.system.directoryPath() : faker.system.fileName(),
-    path: faker.system.filePath(),
+    path,
+    name: path.split("/")[1],
     size: faker.datatype.number({ min: 1, max: 100000 }),
     isDirectory,
   };
 
   if (node.isDirectory) {
-    node.children = listNodes(1, 3);
+    node.children = listNodes(minChildrenNodes, maxChildrenNodes);
   }
 
   return node;
 }
 
 export function newDirectoryNode() {
-  const node = newNode();
-  node.children = listNodes(faker.datatype.number({ min: 3, max: 4 }), 5);
-  node.name = faker.system.directoryPath();
-  node.isDirectory = true;
-  return node;
+  return newNode(true, 10, 15);
 }
 
 export function listNodes(minNodes = 1, maxNodes = 10): Node[] {
   return faker.datatype
     .array(faker.datatype.number({ min: minNodes, max: maxNodes }))
-    .map(newNode);
+    .map(() => newNode());
 }
