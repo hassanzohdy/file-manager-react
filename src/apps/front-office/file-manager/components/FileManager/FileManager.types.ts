@@ -2,14 +2,6 @@ import { Node } from "../../types/FileManager.types";
 
 export type FileManagerProps = {
   /**
-   * Open State for the file manager
-   */
-  open: boolean;
-  /**
-   * Callback for when the file manager is closed
-   */
-  onClose: () => void;
-  /**
    * Root path to open in the file manager
    *
    * @default "/"

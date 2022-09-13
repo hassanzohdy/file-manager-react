@@ -1,4 +1,4 @@
-import { Grid, Modal } from "@mantine/core";
+import { Grid } from "@mantine/core";
 import BaseFileManager from "app/file-manager/utils/FileManager";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Content from "../../Content";
@@ -6,14 +6,11 @@ import FileManagerContext from "../../contexts/FileManagerContext";
 import { Node } from "../../types/FileManager.types";
 import { BodyWrapper } from "./FileManager.styles";
 import { FileManagerProps } from "./FileManager.types";
+import LoadingProgressBar from "./LoadingProgressBar";
 import Sidebar from "./Sidebar";
 import Toolbar from "./Toolbar";
 
-export default function FileManager({
-  open,
-  onClose,
-  rootPath,
-}: FileManagerProps) {
+export default function FileManager({ rootPath }: FileManagerProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [currentDirectoryNode, setCurrentDirectoryNode] = useState<Node>();
   const [rootDirectoryNode, setRootDirectoryNode] = useState<Node>();
@@ -24,6 +21,10 @@ export default function FileManager({
   const load = useCallback(
     (path: string, isRoot = false) => {
       setIsLoading(true);
+
+      if (isRoot) {
+        fileManager.setRootPath(path);
+      }
 
       fileManager.load(path).then(node => {
         setCurrentDirectoryNode(node);
@@ -39,26 +40,25 @@ export default function FileManager({
 
   // load root directory
   useEffect(() => {
-    if (!rootPath || !open) return;
+    if (!rootPath) return;
 
     load(rootPath, true);
-  }, [rootPath, fileManager, open, load]);
+  }, [rootPath, fileManager, load]);
 
   return (
     <FileManagerContext.Provider value={fileManager}>
-      <Modal size="xl" opened={open} onClose={onClose}>
-        <Toolbar />
-        <BodyWrapper>
-          <Grid>
-            <Grid.Col span={3}>
-              <Sidebar rootDirectory={rootDirectoryNode} />
-            </Grid.Col>
-            <Grid.Col span={9}>
-              <Content />
-            </Grid.Col>
-          </Grid>
-        </BodyWrapper>
-      </Modal>
+      <LoadingProgressBar />
+      <Toolbar />
+      <BodyWrapper>
+        <Grid>
+          <Grid.Col span={3}>
+            <Sidebar rootDirectory={rootDirectoryNode} />
+          </Grid.Col>
+          <Grid.Col span={9}>
+            <Content />
+          </Grid.Col>
+        </Grid>
+      </BodyWrapper>
     </FileManagerContext.Provider>
   );
 }

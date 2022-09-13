@@ -7,11 +7,13 @@ export class FileManagerService implements FileManagerServiceInterface {
    */
   public list(directoryPath: string): Promise<any> {
     return new Promise(resolve => {
-      resolve({
-        data: {
-          node: fetchNode(directoryPath),
-        },
-      });
+      setTimeout(() => {
+        resolve({
+          data: {
+            node: fetchNode(directoryPath),
+          },
+        });
+      }, 3000);
     });
   }
 

@@ -1,7 +1,9 @@
-import { Card } from "@mantine/core";
+import { Card, Skeleton } from "@mantine/core";
 import { IconFolder, IconHome2 } from "@tabler/icons";
 import { useMemo } from "react";
+import useLoading from "../../../hooks/useLoading";
 import { Node } from "../../../types/FileManager.types";
+import { SidebarWrapper } from "./Sidebar.styles";
 import SidebarNode from "./SidebarNode";
 
 export type SidebarProps = {
@@ -13,11 +15,34 @@ export default function Sidebar({ rootDirectory }: SidebarProps) {
     return rootDirectory?.children?.filter(child => child.isDirectory);
   }, [rootDirectory]);
 
+  const isLoading = useLoading();
+
+  if (isLoading) {
+    return (
+      <Card shadow={"sm"}>
+        <SidebarWrapper>
+          <Skeleton height={8} mt={6} radius="xl" />
+          <Skeleton height={12} mt={6} width="80%" radius="sm" />
+          <Skeleton height={8} mt={6} width="60%" radius="xl" />
+          <Skeleton height={8} mt={6} radius="xl" />
+          <Skeleton height={12} mt={6} width="80%" radius="sm" />
+          <Skeleton height={8} mt={6} width="60%" radius="xl" />
+          <Skeleton height={8} mt={6} radius="xl" />
+          <Skeleton height={12} mt={6} width="80%" radius="sm" />
+          <Skeleton height={8} mt={6} width="60%" radius="xl" />
+          <Skeleton height={8} mt={6} radius="xl" />
+          <Skeleton height={12} mt={6} width="80%" radius="sm" />
+          <Skeleton height={8} mt={6} width="60%" radius="xl" />
+        </SidebarWrapper>
+      </Card>
+    );
+  }
+
   if (!rootDirectory) return null;
 
   return (
-    <>
-      <Card shadow="sm">
+    <Card shadow="sm">
+      <SidebarWrapper>
         <SidebarNode
           node={rootDirectory}
           navProps={{
@@ -36,7 +61,7 @@ export default function Sidebar({ rootDirectory }: SidebarProps) {
             node={child}
           />
         ))}
-      </Card>
-    </>
+      </SidebarWrapper>
+    </Card>
   );
 }
