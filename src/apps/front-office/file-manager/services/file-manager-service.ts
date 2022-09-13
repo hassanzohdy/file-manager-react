@@ -1,5 +1,5 @@
 import FileManagerServiceInterface from "../types/FileManagerServiceInterface";
-import { listNodes } from "../utils/data";
+import { newDirectoryNode } from "../utils/data";
 
 export class FileManagerService implements FileManagerServiceInterface {
   /**
@@ -9,7 +9,7 @@ export class FileManagerService implements FileManagerServiceInterface {
     return new Promise(resolve => {
       resolve({
         data: {
-          nodes: listNodes(),
+          node: newDirectoryNode(),
         },
       });
     });
@@ -52,3 +52,7 @@ export class FileManagerService implements FileManagerServiceInterface {
     throw new Error("Method not implemented.");
   }
 }
+
+const fileManagerService = new FileManagerService();
+
+export default fileManagerService;
