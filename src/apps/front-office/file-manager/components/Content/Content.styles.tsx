@@ -4,5 +4,6 @@ export const ContentWrapper = styled.div`
   label: ContentWrapper;
   position: relative;
   height: 300px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;

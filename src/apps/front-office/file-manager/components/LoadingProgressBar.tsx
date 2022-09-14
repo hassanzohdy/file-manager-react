@@ -69,6 +69,11 @@ export default function LoadingProgressBar() {
       size="lg"
       value={progress}
       striped
+      styles={{
+        root: {
+          backgroundColor: progress === 0 ? "white" : undefined,
+        },
+      }}
       label={progress > 0 ? `${progress}%` : undefined}
       color={mapProgressColor()}
       animate

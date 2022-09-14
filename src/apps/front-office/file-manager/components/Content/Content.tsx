@@ -1,15 +1,15 @@
-import { Card, LoadingOverlay } from "@mantine/core";
-import { useLoading } from "app/file-manager/hooks";
+import { Card } from "@mantine/core";
 import { ContentWrapper } from "./Content.styles";
+import ContentOverlay from "./ContentOverlay";
+import NodesList from "./NodesList";
 
 export default function Content() {
-  const isLoading = useLoading();
-
   return (
     <>
       <Card shadow="sm">
         <ContentWrapper>
-          <LoadingOverlay visible={isLoading} overlayBlur={2} />
+          <ContentOverlay />
+          <NodesList />
         </ContentWrapper>
       </Card>
     </>

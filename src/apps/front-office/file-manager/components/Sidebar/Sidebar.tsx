@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@mantine/core";
+import { Card, Skeleton, useMantineTheme } from "@mantine/core";
 import { IconFolder, IconHome2 } from "@tabler/icons";
 import { useLoading } from "app/file-manager/hooks";
 import { useMemo } from "react";
@@ -12,6 +12,8 @@ export default function Sidebar({ rootDirectory }: SidebarProps) {
   }, [rootDirectory]);
 
   const isLoading = useLoading();
+
+  const theme = useMantineTheme();
 
   if (isLoading) {
     return (
@@ -44,7 +46,14 @@ export default function Sidebar({ rootDirectory }: SidebarProps) {
           navProps={{
             p: 0,
           }}
-          icon={<IconHome2 size={16} color="#78a136" />}
+          icon={
+            <IconHome2
+              size={16}
+              fill={theme.colors.lime[4]}
+              strokeWidth={1.5}
+              color={theme.colors.lime[9]}
+            />
+          }
         />
         {rootChildren?.map(child => (
           <SidebarNode
@@ -53,7 +62,14 @@ export default function Sidebar({ rootDirectory }: SidebarProps) {
               pl: 10,
             }}
             key={child.path}
-            icon={<IconFolder size={16} fill="#31caf9" />}
+            icon={
+              <IconFolder
+                size={16}
+                fill={theme.colors.blue[4]}
+                strokeWidth={1.5}
+                color={theme.colors.blue[9]}
+              />
+            }
             node={child}
           />
         ))}
