@@ -13,6 +13,7 @@ export const ToolBarButtonWrapper = styled.div`
   label: ToolBarButtonWrapper;
   text-align: center;
   margin: 0 0.5rem;
+  cursor: pointer;
 `;
 
 // 👇🏻 We need to add FC<ActionIconProps> to make it work with styled

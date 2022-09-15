@@ -1,7 +1,6 @@
+import { Button } from "@mantine/core";
 import { useForm } from "@mongez/react-form";
 import { useEffect, useState } from "react";
-import BaseButton from "./../Button";
-import Loader from "./../Indicators/Loader";
 
 type SubmitButtonProps = {
   children: React.ReactNode;
@@ -41,20 +40,15 @@ export default function SubmitButton({
 
   return (
     <>
-      <BaseButton
+      <Button
+        variant="gradient"
+        gradient={{ from: "blue", to: "cyan" }}
         type="submit"
+        loading={isSubmitting}
         {...props}
         disabled={isDisabled || isSubmitting}>
-        {isSubmitting ? (
-          <>
-            <span className="inline">
-              <Loader />
-            </span>
-          </>
-        ) : (
-          children
-        )}
-      </BaseButton>
+        {children}
+      </Button>
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { Input } from "@mantine/core";
 import { FormInputProps, useFormInput } from "@mongez/react-form";
 import { requiredRule } from "@mongez/validator";
 import InputError from "./InputError";
@@ -14,6 +15,7 @@ export default function BaseInput(props: FormInputProps) {
     onChange,
     onBlur,
     error,
+    autoFocus,
     otherProps,
   } = useFormInput(props);
 
@@ -23,13 +25,15 @@ export default function BaseInput(props: FormInputProps) {
         <InputLabel htmlFor={id} required={required}>
           {label}
         </InputLabel>
-        <input
+        <Input
           id={id}
           name={name}
           placeholder={placeholder as string}
           onChange={onChange}
           onBlur={onBlur as any}
           value={value}
+          autoFocus={autoFocus}
+          invalid={error !== null}
           {...otherProps}
         />
         {error && <InputError error={error} />}
