@@ -1,4 +1,5 @@
 import events, { EventSubscription } from "@mongez/events";
+import { createDirectory } from "../actions";
 import fileManagerService from "../services/file-manager-service";
 import { KernelEvents, Node } from "./Kernel.types";
 
@@ -17,6 +18,23 @@ export default class Kernel {
    * Current directory node
    */
   public currentDirectoryNode?: Node;
+
+  /**
+   * Get kernel actions
+   */
+  public get actions() {
+    // we added the following line to disable the annoying eslint message
+    // as we can not use the this keyword in any getters i.e createDirectory.
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const kernel = this;
+
+    return {
+      navigateTo: this.load.bind(this),
+      get createDirectory() {
+        return createDirectory(kernel);
+      },
+    };
+  }
 
   /**
    * Set root path

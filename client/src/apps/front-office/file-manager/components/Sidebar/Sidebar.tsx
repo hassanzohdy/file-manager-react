@@ -50,20 +50,9 @@ export default function Sidebar({ rootDirectory }: SidebarProps) {
         <ScrollArea type="auto" style={{ height: "300px" }}>
           <SidebarNode
             node={rootDirectory}
-            navProps={
-              {
-                // p: 0,
-              }
-            }
             icon={
               <ThemeIcon variant="light" color={theme.colors.lime[1]}>
-                <IconHome2
-                  size={16}
-                  color={theme.colors.lime[9]}
-                  // fill={theme.colors.lime[4]}
-                  // strokeWidth={1.5}
-                  // color={theme.colors.lime[9]}
-                />
+                <IconHome2 size={16} color={theme.colors.lime[9]} />
               </ThemeIcon>
             }
           />
