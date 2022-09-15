@@ -1,4 +1,5 @@
 import fs from "@mongez/fs";
+import makeNode from "app/utils/node";
 import { dataPath } from "app/utils/paths";
 import { Request, Response } from "express";
 
@@ -24,10 +25,6 @@ export default async function listDirectory(
   const children = fs.list(directoryPath);
 
   return response.json({
-    node: {
-      path,
-      name: path.split("/").pop(),
-      children,
-    },
+    node: makeNode(path, children),
   });
 }
