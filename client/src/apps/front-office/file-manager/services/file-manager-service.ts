@@ -1,19 +1,17 @@
+import endpoint from "@mongez/http";
 import FileManagerServiceInterface from "../types/FileManagerServiceInterface";
-import fetchNode from "../utils/helpers";
 
 export class FileManagerService implements FileManagerServiceInterface {
   /**
    * {@inheritDoc}
    */
   public list(directoryPath: string): Promise<any> {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve({
-          data: {
-            node: fetchNode(directoryPath),
-          },
-        });
-      }, 500);
+    console.log(directoryPath);
+
+    return endpoint.get("/file-manager", {
+      params: {
+        path: directoryPath,
+      },
     });
   }
 
