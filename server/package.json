@@ -1,20 +1,30 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.ts",
   "license": "MIT",
+  "author": {
+    "name": "Hasan Zohdy",
+    "email": "hassanzohdy@gmail.com"
+  },
   "scripts": {
+    "postinstall": "npx link-module-alias",
     "generate": "npx ts-node ./src/generator.ts",
     "start": "npx ts-node ./src/index.ts"
+  },
+  "_moduleAliases": {
+    "app": "./src"
   },
   "dependencies": {
     "@faker-js/faker": "^7.5.0",
     "@mongez/fs": "^1.0.3",
+    "@mongez/reinforcements": "^1.0.28",
     "express": "^4.18.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
     "@types/node": "^18.7.18",
+    "link-module-alias": "^1.2.0",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
     "typescript": "^4.8.3"

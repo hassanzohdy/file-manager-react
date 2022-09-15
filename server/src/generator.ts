@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import fs from "@mongez/fs";
-
-const dataDirectory = process.cwd() + "/data";
+// import it here
+import { dataDirectory } from "./config";
 
 function start() {
   make(3, 3, dataDirectory);
