@@ -19,7 +19,16 @@ export default function CreateDirectoryModal({
   const submitForm = (e: React.FormEvent, form: FormInterface) => {
     const directoryName = form.value("name");
 
-    kernel.actions.createDirectory(directoryName);
+    kernel.actions
+      .createDirectory(directoryName)
+      // 👇🏻 close the modal after creating the directory
+      .then(() => {
+        onClose();
+      })
+      // 👇🏻 If an error occurred, then allow form to be resubmitted again for example to allow the user to change the directory name.
+      .catch(() => {
+        form.submitting(false);
+      });
   };
 
   return (

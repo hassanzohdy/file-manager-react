@@ -1,3 +1,4 @@
+import { toastLoading } from "design-system/components/Toast";
 import Kernel from "../Kernel";
 import fileManagerService from "../services/file-manager-service";
 
@@ -6,6 +7,22 @@ export default function createDirectory(kernel: Kernel) {
     directoryName: string,
     directoryPath: string = kernel.currentDirectoryNode?.path as string,
   ) {
-    fileManagerService.createDirectory(directoryName, directoryPath);
+    return new Promise((resolve, reject) => {
+      const loader = toastLoading(
+        "Creating directory...",
+        "We are creating your directory, please wait a moment.",
+      );
+      fileManagerService
+        .createDirectory(directoryName, directoryPath)
+        .then(response => {
+          loader.success("Success!", "Your directory has been created.");
+
+          resolve(response.data.node);
+        })
+        .catch(error => {
+          loader.error("Error", error.response.data.error);
+          reject(error);
+        });
+    });
   };
 }
