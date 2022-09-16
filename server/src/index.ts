@@ -9,8 +9,10 @@ const port = 8001;
 // create express app
 const app: Express = express();
 
-// allow cors
+// add json parser
+app.use(express.json());
 
+// allow cors
 app.use(cors());
 
 // list call our routes list

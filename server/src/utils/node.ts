@@ -1,7 +1,7 @@
 // import the Node type from the client directory xD
-import { Node } from "./../../../client/src/apps/front-office/file-manager/Kernel/Kernel.types";
-
+import concatRoute from "@mongez/concat-route";
 import { isDirectory, size } from "@mongez/fs";
+import { Node } from "./../../../client/src/apps/front-office/file-manager/Kernel/Kernel.types";
 import { dataPath } from "./paths";
 
 export type { Node };
@@ -25,7 +25,7 @@ export default function makeNode(path: string, children?: string[]): Node {
     node.children = (children || []).map((child) =>
       // 👇🏻 we need to check if the path is the root then we will just append it to the child
       // if its not the root then we need to append `/` to the path and then append the child
-      makeNode((path === "/" ? path : path + "/") + child)
+      makeNode(concatRoute(path, child))
     );
   }
 

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.5.0",
+    "@mongez/concat-route": "^1.0.0",
     "@mongez/fs": "^1.1.1",
     "@mongez/reinforcements": "^1.0.28",
     "cors": "^2.8.5",

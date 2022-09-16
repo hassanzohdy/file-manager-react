@@ -32,6 +32,11 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@mongez/concat-route@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@mongez/concat-route/-/concat-route-1.0.0.tgz#c2c0d26274c6135914be5f64670a2986aa443ce2"
+  integrity sha512-yl0kNPilESIk3GcdZtgChfpfVc8VzqQmHTZ+H12wuxACWl7hbA9jK8xQrjvdh+IIxd4Wzr4eaDfrpRpPTvwSQw==
+
 "@mongez/fs@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@mongez/fs/-/fs-1.1.1.tgz#aece0f97e449a165544768248868cd78c9caeaf4"

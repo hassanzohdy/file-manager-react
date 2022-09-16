@@ -1,4 +1,4 @@
-import { ThemeIcon, Tooltip, useMantineTheme } from "@mantine/core";
+import { Text, ThemeIcon, Tooltip, useMantineTheme } from "@mantine/core";
 import { IconHome2 } from "@tabler/icons";
 import { useKernel } from "app/file-manager/hooks";
 import {
@@ -22,7 +22,9 @@ export default function HomeDirectoryButton() {
             <IconHome2 size={16} color={theme.colors.lime[9]} />
           </ThemeIcon>
         </ToolbarIcon>
-        <ToolbarButtonText>Home</ToolbarButtonText>
+        <ToolbarButtonText>
+          <Text color="lime.8">Home</Text>
+        </ToolbarButtonText>
       </ToolBarButtonWrapper>
     </Tooltip>
   );

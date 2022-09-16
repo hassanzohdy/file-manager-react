@@ -1,5 +1,11 @@
+import endpoint from "@mongez/http";
 import Helmet from "@mongez/react-helmet";
 import FileManager from "app/file-manager";
+
+endpoint.post("/file-manager/directory", {
+  path: "/",
+  name: "new-directory-2",
+});
 
 export default function HomePage() {
   return (

@@ -7,5 +7,5 @@ export default function listRoutes(app: Express) {
   // list directory nodes
   app.get("/file-manager", fileManager.list);
   // create a directory node
-  app.post("/file-manage/directory", fileManager.createDirectory);
+  app.post("/file-manager/directory", fileManager.createDirectory);
 }
