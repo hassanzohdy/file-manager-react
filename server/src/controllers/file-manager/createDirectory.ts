@@ -52,7 +52,6 @@ export default async function createDirectory(
   fs.makeDirectory(directoryFullPath);
 
   // return the directory as node
-
   return response.json({
     node: makeNode(directoryPath),
   });

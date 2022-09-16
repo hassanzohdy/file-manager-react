@@ -5,9 +5,7 @@ export class FileManagerService implements FileManagerServiceInterface {
   /**
    * {@inheritDoc}
    */
-  public list(directoryPath: string): Promise<any> {
-    console.log(directoryPath);
-
+  public list(directoryPath: string) {
     return endpoint.get("/file-manager", {
       params: {
         path: directoryPath,
@@ -18,8 +16,11 @@ export class FileManagerService implements FileManagerServiceInterface {
   /**
    * {@inheritDoc}
    */
-  public createDirectory(directoryName: string, saveTo: string): Promise<any> {
-    throw new Error("Method not implemented.");
+  public createDirectory(directoryName: string, path: string) {
+    return endpoint.post("/file-manager/directory", {
+      path,
+      name: directoryName,
+    });
   }
   /**
    * {@inheritDoc}
