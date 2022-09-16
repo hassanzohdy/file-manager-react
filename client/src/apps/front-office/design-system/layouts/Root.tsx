@@ -1,4 +1,5 @@
 import { AppShell, MantineProvider } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
 import { BasicComponentProps } from "../../utils/types";
 
 /**
@@ -11,7 +12,9 @@ export default function Root({ children }: BasicComponentProps) {
   return (
     <>
       <MantineProvider withGlobalStyles withNormalizeCSS>
-        <AppShell>{children}</AppShell>
+        <NotificationsProvider position="top-right">
+          <AppShell>{children}</AppShell>
+        </NotificationsProvider>
       </MantineProvider>
     </>
   );
