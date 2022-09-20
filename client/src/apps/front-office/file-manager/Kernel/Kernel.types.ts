@@ -25,9 +25,23 @@ export type Node = {
    * This should be present (event with empty array) if the node is directory
    */
   children?: Node[];
+  /**
+   * Get children directories
+   */
+  directories?: Node[];
+  /**
+   * Get children files
+   */
+  files?: Node[];
 };
 
 /**
  * Kernel events
  */
-export type KernelEvents = "loading" | "load" | "directoryChange";
+export type KernelEvents =
+  | "loading"
+  | "load"
+  | "directoryChange"
+  | "nodeChange"
+  | "nodeDestroy"
+  | "newNode";

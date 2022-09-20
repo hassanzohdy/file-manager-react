@@ -2,6 +2,7 @@ import events, { EventSubscription } from "@mongez/events";
 import { createDirectory } from "../actions";
 import fileManagerService from "../services/file-manager-service";
 import { KernelEvents, Node } from "./Kernel.types";
+import KernelTree from "./KernelTree";
 
 export default class Kernel {
   /**
@@ -18,6 +19,25 @@ export default class Kernel {
    * Current directory node
    */
   public currentDirectoryNode?: Node;
+
+  /**
+   * Kernel nodes tree
+   */
+  public tree: KernelTree;
+
+  /**
+   * Root node
+   */
+  public rootNode?: Node;
+
+  /**
+   * Constructor
+   */
+  public constructor(rootPath: string) {
+    this.rootPath = rootPath;
+
+    this.tree = new KernelTree(this);
+  }
 
   /**
    * Get kernel actions
@@ -55,9 +75,17 @@ export default class Kernel {
       fileManagerService
         .list(path)
         .then(response => {
+          this.currentDirectoryPath = path;
+
+          if (response.data.node.path === this.rootPath) {
+            this.tree.setRootNode(response.data.node);
+            this.rootNode = response.data.node;
+          } else {
+            this.tree.setNode(response.data.node);
+          }
+
           // trigger load event as the directory has been loaded successfully.
           this.trigger("load", response.data.node);
-          this.currentDirectoryPath = path;
 
           // if the current directory is not as the same loaded directory path,
           // then we'll trigger directory changed event.

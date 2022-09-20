@@ -4,45 +4,20 @@ import LoadingProgressBar from "app/file-manager/components/LoadingProgressBar";
 import Sidebar from "app/file-manager/components/Sidebar";
 import Toolbar from "app/file-manager/components/Toolbar";
 import { KernelContext } from "app/file-manager/contexts";
-import Kernel, { Node } from "app/file-manager/Kernel";
-import { useCallback, useEffect, useRef, useState } from "react";
+import Kernel from "app/file-manager/Kernel";
+import { useEffect, useRef } from "react";
 import { BodyWrapper } from "./FileManager.styles";
 import { FileManagerProps } from "./FileManager.types";
 
 export default function FileManager({ rootPath }: FileManagerProps) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [currentDirectoryNode, setCurrentDirectoryNode] = useState<Node>();
-  const [rootDirectoryNode, setRootDirectoryNode] = useState<Node>();
-
-  const { current: kernel } = useRef(new Kernel());
-
-  // load the given directory path
-  const load = useCallback(
-    (path: string, isRoot = false) => {
-      setIsLoading(true);
-
-      if (isRoot) {
-        kernel.setRootPath(path);
-      }
-
-      kernel.load(path).then(node => {
-        setCurrentDirectoryNode(node);
-
-        setIsLoading(false);
-        if (isRoot) {
-          setRootDirectoryNode(node);
-        }
-      });
-    },
-    [kernel],
-  );
+  const { current: kernel } = useRef(new Kernel(rootPath as string));
 
   // load root directory
   useEffect(() => {
     if (!rootPath) return;
 
-    load(rootPath, true);
-  }, [rootPath, kernel, load]);
+    kernel.load(rootPath);
+  }, [rootPath, kernel]);
 
   return (
     <KernelContext.Provider value={kernel}>
@@ -51,7 +26,7 @@ export default function FileManager({ rootPath }: FileManagerProps) {
       <BodyWrapper>
         <Grid>
           <Grid.Col span={3}>
-            <Sidebar rootDirectory={rootDirectoryNode} />
+            <Sidebar />
           </Grid.Col>
           <Grid.Col span={9}>
             <Content />
