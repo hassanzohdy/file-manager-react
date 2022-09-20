@@ -12,10 +12,13 @@ export default function createDirectory(kernel: Kernel) {
         "Creating directory...",
         "We are creating your directory, please wait a moment.",
       );
+
       fileManagerService
         .createDirectory(directoryName, directoryPath)
         .then(response => {
           loader.success("Success!", "Your directory has been created.");
+
+          kernel.tree.setNode(response.data.node);
 
           resolve(response.data.node);
         })
